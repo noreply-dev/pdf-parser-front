@@ -1,44 +1,25 @@
 import React from 'react'
 
-function IgnoreOperators(state, updateState) {
-  return <input
-    type='text'
-    className='w-full h-fit rounded-md px-3 py-2 font-light text-sm bg-[#dddddd]
-    outline-none border-none'
-    placeholder='Comma separated values. No spaces.'
-    value={state.ignoreOperators.value}
-    onChange={e => {
-      updateState(prev => ({
-        ...prev,
-        ignoreOperators: e.target.value
-      }))
-    }}
-  />
-}
-
 export const queryParams = [
   {
     name: 'Ignore operators',
     value: 'ignoreOperators',
     type: 'array',
-    description: 'Ignore operators on the pdf filtering process.',
+    description: 'Ignore operators on the filtering process once the pdf has been parsed.',
     example: 'text,image,rectangle',
-    component: IgnoreOperators
   },
   {
     name: 'Remap operators keys',
     value: 'remapOperatorsKeys',
     type: 'array',
-    description: 'Remap operators types names on the fly while filtering.',
-    example: 'rectagle.check',
-    component: IgnoreOperators
+    description: 'Remap operators types names on the fly on the filtering process. In this way, the rectangle could be representend as a true element inside a table.',
+    example: 'rectagle.check,image.fotito',
   },
   {
     name: 'Ignore front pages',
     value: 'ignoreFrontPages',
     type: 'boolean',
-    description: 'Ignore cover pages.',
+    description: 'Ignore the pages that has an image that covers all the page or almost all the page.',
     example: 'true',
-    component: IgnoreOperators
-  }
+  },
 ]

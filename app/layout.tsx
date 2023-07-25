@@ -1,3 +1,4 @@
+import { ContextProvider } from '@/context/Context'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Fira_Code, Inter, Sora } from 'next/font/google'
@@ -16,7 +17,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={sora.className}>{children}</body>
+      <body className={sora.className}>
+        <ContextProvider>
+          {children}
+        </ContextProvider>
+      </body>
     </html>
   )
 }
