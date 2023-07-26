@@ -1,12 +1,13 @@
 'use client'
 
+import { Json } from "@/components/build/Json"
 import { RequestBuilder } from "@/components/build/RequestBuilder"
 import { AppContext } from "@/context/Context"
 import { useRouter } from "next/navigation"
 import { useContext, useEffect } from "react"
 
 export default function Build() {
-  const { state, setState } = useContext(AppContext)
+  const { state } = useContext(AppContext)
   const router = useRouter()
 
   useEffect(() => {
@@ -16,7 +17,6 @@ export default function Build() {
   return <div className="flex flex-row justify-start items-center h-screen w-screen">
     <RequestBuilder />
     <div className="h-[70%] w-[1px] bg-black"/>
-    <div className="w-full"></div>
-    {/* <Json/> */}
+    <Json/>
   </div>
 }
