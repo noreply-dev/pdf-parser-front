@@ -2,24 +2,24 @@ import React from 'react'
 
 export const queryParams = [
   {
-    name: 'Ignore operators',
+    name: 'Ignorar',
     value: 'ignoreOperators',
     type: 'array',
-    description: 'Ignore operators on the filtering process once the pdf has been parsed.',
+    description: 'Ignorar operadores.',
     example: 'text,image,rectangle',
   },
   {
-    name: 'Remap operators keys',
+    name: 'Renombrar',
     value: 'remapOperatorsKeys',
     type: 'array',
-    description: 'Remap operators types names on the fly on the filtering process. In this way, the rectangle could be representend as a true element inside a table.',
-    example: 'rectagle.check,image.fotito',
+    description: 'Cambiar el nombre de los operadores. Así un operador Image se puede renombrar a Foto.',
+    example: 'rectagle.check',
   },
   {
-    name: 'Ignore front pages',
+    name: 'Ignorar portadas',
     value: 'ignoreFrontPages',
     type: 'boolean',
-    description: 'Ignore the pages that has an image that covers all the page or almost all the page.',
+    description: 'Ignorar las páginas que son en su totalidad imágenes.',
     example: 'true',
   },
 ]

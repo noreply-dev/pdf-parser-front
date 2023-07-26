@@ -28,10 +28,10 @@ export function QueryParams() {
               ease-in-out border-[#dddddd]'>
               <p className='text-base font-light whitespace-nowrap 
                 text-[#898989]'
-              >{param.value}</p>
+              >{param.name}</p>
               <div className='h-[25px] w-[3px] bg-[#b8b8b8]'></div>
               <input className='w-full text-base font-light text-black bg-transparent outline-none' 
-                placeholder={param.type}
+                placeholder={param.example}
                 value={inputsState[param.name]}
                 onChange={(e) => {
                   setInputsState({
@@ -49,7 +49,7 @@ export function QueryParams() {
                 }}
                 type="text" />
             </div>
-            <p className='font-light text-sm text-black mb-6 px-3'>{param.description} E.g.: {param.example}</p>
+            <p className='font-light text-sm text-black mb-6 px-3'>{param.description} Ejemplo: {param.example}</p>
           </div>
         })
       }
