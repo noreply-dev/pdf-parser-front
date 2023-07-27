@@ -1,7 +1,7 @@
 import { ContextProvider } from '@/context/Context'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Fira_Code, Inter, Sora } from 'next/font/google'
+import {DM_Mono, Inter, Sora } from 'next/font/google'
 
 const sora = Sora({ subsets: ['latin'] })
 

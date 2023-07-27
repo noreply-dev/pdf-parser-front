@@ -1,5 +1,8 @@
 'use client'
 
+import { SearchContext } from "@/context/SearchContext"
+import { useContext } from "react"
+
 const productsRenderers = {
   'array': ArrayRenderer,
   'object': ObjectRenderer,
@@ -119,11 +122,19 @@ function renderProduct(keys: Array<string>, data: any, level: number): any{
 }
 
 export function Product({page, index}: {page: any, index: number}) {
+  
+  const {search} = useContext(SearchContext)
   let pageN = index+1
 
   return <div className="flex flex-col w-full h-fit gap-3">
     {
-      page.map((product: any, index: number) => {
+      page
+      .filter((product: any) => {
+        if (search === '') return true
+        if (!product?.name) return false
+        return product.name.toLowerCase().includes(search.toLowerCase())
+      })
+      .map((product: any, index: number) => {
         const productKeys = Object.keys(product)
         const indentingLevel = 1
 
