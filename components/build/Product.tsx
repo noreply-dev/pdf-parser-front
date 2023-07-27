@@ -28,18 +28,16 @@ function ObjectRenderer(object: Object, level: number): any{
   return keys.map((key, index)=> {
     const depthLevel = findDeepestLevel(object[key as keyof typeof object])  
 
-    if (Array.isArray(object[key as keyof typeof object])) {
-      const array = Object.values(object[key as keyof typeof object])
-      return <div key={index} style={{ marginLeft: indenting+'px'}}
-        className={`flex ${depthLevel < 2? 'flex-row items-center justify-start' 
-        : 'flex-col items-start justify-start'} h-fit w-full px-5`}>
-        <div className="flex flex-row justify-start items-center">
-          {level === 1 && <div className="h-1 w-1 bg-black rounded-sm mr-2"></div>}
-          <p className="text-base text-black font-light">{key}:</p>
-        </div>
-        {ArrayRenderer(array, level)}
+    const array = Object.values(object[key as keyof typeof object])
+    return <div key={index} style={{ marginLeft: indenting+'px'}}
+      className={`flex ${depthLevel < 2? 'flex-row items-center justify-start' 
+      : 'flex-col items-start justify-start'} h-fit w-full px-5`}>
+      <div className="flex flex-row justify-start items-center">
+        {level === 1 && <div className="h-1 w-1 bg-black rounded-sm mr-2"></div>}
+        <p className="text-base text-black font-light">{key}:</p>
       </div>
-    }
+      {ArrayRenderer(array, level)}
+    </div>
   })
 }
 
@@ -73,6 +71,7 @@ function renderProduct(keys: Array<string>, data: any, level: number): any{
     if (data[key] instanceof Object)  renderType = 'object'
     if (Array.isArray(data[key])) renderType = 'array'
 
+    console.log(renderType)
     const depthLevel = findDeepestLevel(data[key])
 
     // conditionally render a column or a row
