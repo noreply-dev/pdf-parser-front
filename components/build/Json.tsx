@@ -54,8 +54,8 @@ export function Json() {
       <h2 className="text-xl pt-3 font-medium">Productos</h2>
       <p className="text-base font-light text-[#898989]">{getProductsCount() || '0'} productos</p>
     </div>
-    <div className="flex flex-col w-full h-full overflow-y-scroll pt-8 pb-8 z-10 gap-3 items-center 
-      justify-center">
+    <div className={`flex flex-col w-full h-full overflow-y-scroll pt-8 pb-8 z-10 gap-3 items-center 
+      ${state?.json ? 'justify-start' : 'justify-center'} `}>
       {
         !state?.json 
           ? <>
